@@ -1,4 +1,4 @@
-single_predict <- function(rit,instance,count){
+single_predict <- function(rit,instance){
   class_names <- names(rit[["Class_priors"]])
   nb_class <- length(class_names)
   
@@ -8,45 +8,34 @@ single_predict <- function(rit,instance,count){
   model <- rit[["Model"]]
   isCat <- rit[["cat_attr"]]
   
-  count_has <- 0
   for(elem in model){
     if(has_inter(elem[["interaction"]],instance,isCat)){
       probs <- probs + log10(elem[["sm"]])
-      count_has <- count_has + 1 
     }
   }
   
   # Compute argmax
   response <- names(probs)[which.max(probs)]
-  if(count){
-    return(list(response=response,count_has=count_has/length(model)))
-  }
-  else{
-    return(response)
-  }
+  response
 }
 
-cov_predict <- function(rit,testset,count=FALSE){    
+#' @title Classification Rule for Coverage-based Random Intersection Trees.
+#' @description Applies a basic \code{argmax} rule in order to classify new instances.
+#'
+#' @return A response vector for the \code{testset} instances
+#'
+#' @param rit A model produced by \code{cov_RIT}
+#' @param testset A dataframe containing the instances to classify
+#' 
+#' @references Ballarini Robin. Random intersection trees for genomic data analysis. Master's thesis, Université Catholique de Louvain, 2016.
+#' @export
+#'
+cov_predict <- function(rit,testset){    
   # Predict
-  if(count)
-    response <- vector(mode="list",length=nrow(testset))
-  else
-    response <- vector(mode="character",length=nrow(testset))
+  response <- vector(mode="character",length=nrow(testset))
   
   for(i in 1:nrow(testset)){
-    response[[i]] <- single_predict(rit,testset[i,],count)
+    response[[i]] <- single_predict(rit,testset[i,])
   }
-  
-  if(count){
-    r <- sapply(response,function(i){
-      i[["response"]]
-    })
-    c <- sapply(response,function(i){
-      i[["count_has"]]
-    })
-    return(list(response=r,count_has=sum(c)))
-  }
-  else{
-    return(response)
-  }
+  response
 }

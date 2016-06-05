@@ -1,3 +1,7 @@
+#' @useDynLib covRIT
+#' @import data.table
+#'
+
 stopParameters <- function(data,classes,epsilon,epsilon_cat,n_trees,depth,min_inter_sz,branch,split_nb){
   # check parameters
   if(!is.data.frame(data))
@@ -24,6 +28,26 @@ stopParameters <- function(data,classes,epsilon,epsilon_cat,n_trees,depth,min_in
     stop("split_nb should be at least 1.")
 }
 
+#' @title Coverage-based Random Intersection Trees.
+#' @description Executes the algorithm known as Coverage-based Random Intersection Trees.
+#' 
+#' @return A model that is composed of all informative interactions found in the dataset.
+#'
+#' @param data The dataset as a dataframe.
+#' @param classes A response vector for the dataset.
+#' @param theta The prevalence thresholds. Used to determine if an interaction is informative of not w.r.t. the classes.
+#' @param epsilon The scaling factor for continuous feature removal.
+#' @param epsilon_cat The scaling factor for categorical feature removal.
+#' @param n_trees The number of trees.
+#' @param depth The depth of the interaction search.
+#' @param min_inter_sz The minimum allowed size of interactions.
+#' @param branch The branching factor in the interaction search.
+#' @param split_nb The number of intersections that should be succesively computed before splitting the search into \code{branch} children.
+#' @param es A logical that indicates whether or not early stopping should be used.
+#' 
+#' @references Ballarini Robin. Random intersection trees for genomic data analysis. Master's thesis, Université Catholique de Louvain, 2016.
+#' @export
+#'
 cov_RIT <- function(data,classes,theta,epsilon,epsilon_cat,n_trees=100L,depth=10L,min_inter_sz=2L,branch=5,split_nb=1,es=TRUE){
   
   stopParameters(data,classes,epsilon,epsilon_cat,n_trees,depth,min_inter_sz,branch,split_nb)

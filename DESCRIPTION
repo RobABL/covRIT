@@ -1,11 +1,15 @@
 Package: covRIT
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
-Date: 2016-05-05
-Author: Your Name
-Maintainer: Your Name <your@email.com>
-Description: More about what it does (maybe more than one line)
+Title: Coverage-based Random Intersection Trees
+Version: 0.1
+Date: 2016-06-06
+Author: Ballarini Robin
+Description: Rcpp implementation of the "Coverage-based Random Intersection Trees" classification algorithm. The package exports
+  two functions: one which searches for informative interactions using the aforementioned algorithm, another that applies 
+  a basic argmax classification rule on the interactions returned by the first function in order to classify new instances.
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.11.6)
+Imports:
+    Rcpp (>= 0.11.6)
 LinkingTo: Rcpp
+RoxygenNote: 5.0.1
+SystemRequirements: C++11
