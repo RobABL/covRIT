@@ -37,6 +37,6 @@ A model that is composed of all informative interactions found in the dataset.
 Executes the algorithm known as Coverage-based Random Intersection Trees.
 }
 \references{
-Ballarini Robin. Random intersection trees for genomic data analysis. Master's thesis, Université Catholique de Louvain, 2016.
+Ballarini Robin. Random intersection trees for genomic data analysis. Ecole polytechnique de Louvain, Université catholique de Louvain, 2016. Prom. : Dupont, Pierre.
 }
 

@@ -18,6 +18,6 @@ A response vector for the \code{testset} instances
 Applies a basic \code{argmax} rule in order to classify new instances.
 }
 \references{
-Ballarini Robin. Random intersection trees for genomic data analysis. Master's thesis, Université Catholique de Louvain, 2016.
+Ballarini Robin. Random intersection trees for genomic data analysis. Ecole polytechnique de Louvain, Université catholique de Louvain, 2016. Prom. : Dupont, Pierre.
 }
 

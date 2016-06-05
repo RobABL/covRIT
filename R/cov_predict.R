@@ -27,7 +27,7 @@ single_predict <- function(rit,instance){
 #' @param rit A model produced by \code{cov_RIT}
 #' @param testset A dataframe containing the instances to classify
 #' 
-#' @references Ballarini Robin. Random intersection trees for genomic data analysis. Master's thesis, Université Catholique de Louvain, 2016.
+#' @references Ballarini Robin. Random intersection trees for genomic data analysis. Ecole polytechnique de Louvain, Université catholique de Louvain, 2016. Prom. : Dupont, Pierre.
 #' @export
 #'
 cov_predict <- function(rit,testset){    

@@ -45,7 +45,7 @@ stopParameters <- function(data,classes,epsilon,epsilon_cat,n_trees,depth,min_in
 #' @param split_nb The number of intersections that should be succesively computed before splitting the search into \code{branch} children.
 #' @param es A logical that indicates whether or not early stopping should be used.
 #' 
-#' @references Ballarini Robin. Random intersection trees for genomic data analysis. Master's thesis, Université Catholique de Louvain, 2016.
+#' @references Ballarini Robin. Random intersection trees for genomic data analysis. Ecole polytechnique de Louvain, Université catholique de Louvain, 2016. Prom. : Dupont, Pierre.
 #' @export
 #'
 cov_RIT <- function(data,classes,theta,epsilon,epsilon_cat,n_trees=100L,depth=10L,min_inter_sz=2L,branch=5,split_nb=1,es=TRUE){
